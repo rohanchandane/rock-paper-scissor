@@ -1,0 +1,37 @@
+<div>
+    <button type="button" class="btn btn-primary center-block" ng-click="init()" ng-hide="isGameOn">Start Game</button>
+    <button type="button" class="btn btn-primary center-block" ng-click="initializeValues()" ng-show="isGameOn">Reset</button>
+</div>
+
+
+<div class="row" ng-show="isGameOn" style="margin-top: 10px;">
+    <div class="col-md-6">
+        <h2> You </h2>
+        <div class="jumbotron">
+            <i class="fa fa-circle fa-5x" ng-show="playerSelection === 'rock'"><h3> Rock </h3></i>
+            <i class="fa fa-newspaper-o fa-5x" ng-show="playerSelection === 'paper'"><h3> Paper </h3></i>
+            <i class="fa fa-scissors fa-5x" ng-show="playerSelection === 'scissor'"><h3> Scissor </h3></i>
+        </div>
+        <div class="container">
+            <button type="button" class="btn btn-default" ng-show="playerSelection === ''" ng-click="setPlayerSelection('rock')"><i class="fa fa-circle"></i> Rock</button>
+            <button type="button" class="btn btn-default" ng-show="playerSelection === ''" ng-click="setPlayerSelection('paper')"><i class="fa fa-newspaper-o"></i> Paper</button>
+            <button type="button" class="btn btn-default" ng-show="playerSelection === ''" ng-click="setPlayerSelection('scissor')"><i class="fa fa-scissors"></i> Scissor</button>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2> Computer </h2>
+        <div class="jumbotron">
+            <i class="fa fa-circle fa-5x" ng-show="computerSelection === 'rock'"><h3> Rock </h3></i>
+            <i class="fa fa-newspaper-o fa-5x" ng-show="computerSelection === 'paper'"><h3> Paper </h3></i>
+            <i class="fa fa-scissors fa-5x" ng-show="computerSelection === 'scissor'"><h3> Scissor </h3></i>
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-show="result !== ''">
+    <div class="container">
+        <div class="alert alert-success" role="alert" ng-show="result === 'You Won'" style="text-align: center;"><strong>Result: </strong> {{result}}</div>
+        <div class="alert alert-danger" role="alert" ng-show="result === 'You Lost'" style="text-align: center;"><strong>Result: </strong> {{result}}</div>
+        <div class="alert alert-warning" role="alert" ng-show="result === 'Draw'" style="text-align: center;"><strong>Result: </strong> {{result}}</div>
+    </div>
+</div>
